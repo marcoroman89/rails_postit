@@ -1,6 +1,6 @@
 == Postit Rails
 
-This site was created to simply let developers freely share any articles on a variety of Rails topics. Come join us and have a good time developers!
+This app was created to simply let developers freely share any articles on a variety of Rails topics. Come join us and have a good time developers!
 
 by:[Marco Roman]
 
