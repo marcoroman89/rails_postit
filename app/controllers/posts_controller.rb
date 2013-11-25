@@ -12,7 +12,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(params.require(:post).permit!)
+    @post = Post.new(post_params)
 
     if @post.save
       flash[:notice] = "You created a new post!"
@@ -28,5 +28,11 @@ class PostsController < ApplicationController
 
   def update
 
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:title, :url) # Will return {title: 'Something', url: 'Something'}
   end
 end
