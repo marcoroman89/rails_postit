@@ -3,7 +3,10 @@
 <ul>
   <% @posts.each do |post| %>
     <li><%= link_to post.title, post_path(post)%>
-      <small>[<%= link_to 'link', display_url(post.url) %>]</small>
+      <small>
+        [<%= link_to 'link', display_url(post.url) %>] posted at <%= display_datetime(post.created_at) %> |
+      <%= link_to 'edit', edit_post_path(post) %>
+      </small>
     </li>
   <% end %>
 </ul>
