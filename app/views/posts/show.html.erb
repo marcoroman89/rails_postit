@@ -1,1 +1,19 @@
 <h2>You're Looking At <%= @post.title %></h2>
+<p>URL: <%= @post.url %></p>
+<p>Description: <%= @post.description %></p>
+
+<p>
+  <%= render 'shared_partials/errors', errors_object: @comment %>
+  <%= form_for [@post, @comment] do |f| %>
+    <%= f.text_area :body %>
+    <br/>
+    <%= f.submit "Create Comment", class: "btn btn-primary" %>
+  <% end %>
+
+  <h4>Comments:</h4>
+    <ol>
+      <% @post.comments.each do |comment| %>
+        <li><%= comment.body %></li>
+      <% end %>
+    </ol>
+</p>

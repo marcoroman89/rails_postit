@@ -1,12 +1,17 @@
-<h1>All Posts</h1>
+<div class="page-header">
+  <h2>Welcome!<small> - start posting some awesome stuff!</small></h2>
+</div>
 
-<ul>
+<div class="new_post_btn"><%= link_to "Create New Post", new_post_path, class: 'btn btn-primary' %>
+</div>
+
   <% @posts.each do |post| %>
-    <li><%= link_to post.title, post_path(post)%>
-      <small>
-        [<%= link_to 'link', display_url(post.url) %>] posted at <%= display_datetime(post.created_at) %> |
-      <%= link_to 'edit', edit_post_path(post) %>
-      </small>
-    </li>
+    <div class="posts">
+        <h3><%= link_to post.title, post_path(post)%></h3>
+          <h4><%= post.description %></h4>
+        <small class="muted">
+          [<%= link_to 'link', display_url(post.url) %>] posted at <%= display_datetime(post.created_at) %> |
+        <%= link_to 'edit', edit_post_path(post) %>
+        </small>
+    </div>
   <% end %>
-</ul>

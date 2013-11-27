@@ -1,11 +1,17 @@
-<%= render 'shared_partials/errors', object: @post %>
+<%= render 'shared_partials/errors', errors_object: @post %>
 
 <%= form_for @post do |f| %>
-  <%= f.label :title %><br/>
-  <%= f.text_field :title %><br/>
-  <br/>
-  <%= f.label :url %><br/>
-  <%= f.text_field :url %><br/>
-  <br/>
+  <%= f.label :title %>
+  <%= f.text_field :title, :class=> "span4", :placeholder=>"Title goes here" %>
+
+  <%= f.label :description %>
+  <%= f.text_area :description, :class=> "span4", :placeholder=>"Description goes here", :rows => "6" %>
+
+  <%= f.label :url %>
+  <%= f.text_field :url, :class=> "span4", :placeholder=>"URL goes here" %><br/>
+
+  <div class="button">
   <%= f.submit @post.new_record? ? "Create Post" : "Update Post", class: 'btn btn-primary' %>
+  </div>
 <% end %>
+
