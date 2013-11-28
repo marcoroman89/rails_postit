@@ -7,30 +7,38 @@
         <span class="icon-bar"></span>
       </a>
 
-      <% if logged_in? %>
-        <%= link_to "CodeFriends", posts_path, :class => 'brand' %>
-      <% else %>
-        <%= link_to "CodeFriends", root_path, :class => 'brand' %>
-      <% end %>
+      <%= link_to "CodeFriends", root_path, :class => 'brand' %>
 
       <div class="nav-collapse">
-        <ul class="nav pull-left">
+        <ul class="nav">
           <% if logged_in? %>
-            <li><%= link_to 'All Posts', posts_path %></li>
-            <li><%= link_to 'New Post', new_post_path %></li>
+            <li class="divider-vertical"></li>
+            <li class="active"><%= link_to 'Home', posts_path %></li>
+            <li class="divider-vertical"></li>
             <li><%= link_to 'About',  about_path %></li>
+            <li class="divider-vertical"></li>
+            <li><%= link_to 'New Post', new_post_path %></li>
           <% else %>
             <li><%= link_to 'Home',  root_path %></li>
+            <li class="divider-vertical"></li>
             <li><%= link_to 'About',  about_path %></li>
           <% end %>
         </ul>
 
         <ul class="nav pull-right">
             <% if logged_in? %>
+              <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.username %><b class="caret"></b></a>
+              <ul class="dropdown-menu">
+              <li><%= link_to 'Update Profile', "#" %></li>
+              <li class="divider"></li>
               <li><%= link_to 'Logout', logout_path %></li>
             <% else %>
-              <li><%= link_to 'Login',  login_path %></li>
               <li><%= link_to 'Register', register_path %></li>
+              <li class="divider-vertical"></li>
+
+              <!-- Modal Link Trigger Action -->
+              <li><%= link_to 'Login', login_path, :remote => true, "data-toggle" => "modal", "data-target" => "#myModal" %></li>
             <% end %>
         </ul>
       </div>

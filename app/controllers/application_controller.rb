@@ -19,4 +19,13 @@ class ApplicationController < ActionController::Base
       redirect_to root_path
     end
   end
+
+  def access_denied
+    flash[:error] = "Oops, you can't do that!"
+    redirect_to posts_path
+  end
+
+  def access_denied_homepage
+    redirect_to posts_path
+  end
 end

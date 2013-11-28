@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update]
   before_action :require_user, only: [:new, :create, :edit, :update]
+  before_action :require_creator, only: [:edit, :update]
 
   def index
     @posts = Post.all
@@ -16,6 +17,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.creator = current_user
 
 
     if @post.save
@@ -40,10 +42,14 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :url)
+    params.require(:post).permit(:title, :description, :url)
   end
 
   def set_post
     @post = Post.find(params[:id])
+  end
+
+  def require_creator
+    access_denied if @post.creator != current_user
   end
 end
