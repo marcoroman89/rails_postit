@@ -3,12 +3,39 @@
 <div class="page-header">
   <h2><%=@post.title %>
       <small>
-        posted by <%= link_to @post.creator.username %> <%= time_ago_in_words(@post.created_at) + ' ago' %> |
+        - posted by <%= link_to @post.creator.username %> <%= time_ago_in_words(@post.created_at) + ' ago' %> |
         <%=link_to 'go to article', display_url(@post.url) %>
         <% if logged_in? && (@post.creator == current_user) %> |
-          <%= link_to 'edit', edit_post_path %> |
-          <i class="icon-user icon"></i>
+          <%= link_to 'edit', edit_post_path(@post) %> |
+          <i class="icon-fa-user"></i>
         <% end %>
       </small>
   </h2>
 </div>
+
+<h3><%= @post.description %></h3>
+  <%= form_for [@post, @comment] do |f| %>
+    <%= f.text_area :body, :class=> "span4", :placeholder=> "Comment goes here", :rows => "7" %>
+    </br>
+    <div class="button">
+    <%= f.submit "Create a comment", class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+
+<div class="page-header">
+  <h4>All Comments</h4>
+</div>
+<% @post.comments.each do |comment| %>
+  <div class="comments">
+    <h5><%= comment.body %></h5>
+      <li>
+       <small class="muted">
+        posted by <%= link_to comment.creator.username %> <%= time_ago_in_words(comment.created_at) + ' ago' %>
+        <% if logged_in? && (comment.creator == current_user) %> |
+          <%= link_to 'edit', "#" %> |
+          <i class="icon-fa-user"></i>
+        <% end %>
+      </small>
+      </li>
+  </div>
+<% end %>

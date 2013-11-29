@@ -9,9 +9,10 @@
     <div class="posts">
         <h3><%= link_to post.title, post_path(post)%></h3>
           <h4><%= post.description %></h4>
-        <small class="muted">
+        <small>
           [<%= link_to 'link', display_url(post.url) %>] posted at <%= display_datetime(post.created_at) %> |
-        <%= link_to 'edit', edit_post_path(post) %>
+          <%= link_to 'edit', edit_post_path(post) %> |
+          <i class="icon-fa-user"></i>
         </small>
     </div>
   <% end %>

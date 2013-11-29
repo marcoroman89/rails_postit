@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/shorelabs/font-icons-rails.git
+  revision: 19da71315862d54f766645444accd4e9f5dab6e7
+  specs:
+    font-icons-rails (0.0.5)
+      sass-rails (>= 3.1.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -135,6 +142,7 @@ DEPENDENCIES
   bootstrap-sass (~> 2.3.2.0)
   bootstrap-will_paginate
   coffee-rails (~> 4.0.0)
+  font-icons-rails!
   jbuilder (~> 1.2)
   jquery-rails
   pg

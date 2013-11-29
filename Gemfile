@@ -16,6 +16,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'bcrypt-ruby', '= 3.0.1'
+gem 'font-icons-rails', :git=> 'git://github.com/shorelabs/font-icons-rails.git'
 
 group :doc do
   gem 'sdoc', require: false
