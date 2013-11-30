@@ -1,7 +1,7 @@
 <%= render 'shared_partials/errors', errors_object: @comment %>
 
 <div class="page-header">
-  <h2><%=@post.title %>
+  <h3><%=@post.title %>
       <small>
         - posted by <%= link_to @post.creator.username %> <%= time_ago_in_words(@post.created_at) + ' ago' %> |
         <%=link_to 'go to article', display_url(@post.url) %>
@@ -13,7 +13,7 @@
   </h2>
 </div>
 
-<h3><%= @post.description %></h3>
+<h4><%= @post.description %></h4>
   <%= form_for [@post, @comment] do |f| %>
     <%= f.text_area :body, :class=> "span4", :placeholder=> "Comment goes here", :rows => "7" %>
     </br>
@@ -23,11 +23,11 @@
   <% end %>
 
 <div class="page-header">
-  <h4>All Comments</h4>
+  <h5>All Comments:</h4>
 </div>
 <% @post.comments.each do |comment| %>
   <div class="comments">
-    <h5><%= comment.body %></h5>
+    <p><%= comment.body %></p>
       <li>
        <small class="muted">
         posted by <%= link_to comment.creator.username %> <%= time_ago_in_words(comment.created_at) + ' ago' %>

@@ -1,17 +1,35 @@
 <%= render 'shared_partials/errors', errors_object: @user %>
-<div class="page-header">
-  <h2>Register <small> - register to start sharing!</small></h2>
+<div class="row">
+  <div class="span6">
+    <div class="page-header">
+      <h2>Register <small> - register to start sharing!</small></h2>
+    </div>
+
+    <div class="well">
+      <%= form_for @user do |f| %>
+        <%= f.label :username %>
+        <%= f.text_field :username %>
+
+        <%= f.label :password %>
+        <%= f.password_field :password %><br/>
+
+        <%= f.submit "Register", class: "btn btn-primary" %>
+      <% end %>
+      <%= link_to 'Already Registered?', login_path %>
+     </div>
+  </div>
+
+  <div class="span6">
+      <div class="page-header">
+        <h2>Why Register?<small> - learn and share</small></h2>
+      </div>
+        <h4>- It's completely free</h4>
+        <h4>- Join a friendly online community</h4>
+        <h4>- Share relevant Rails topics and tips</h4>
+        <h4>- Stay ontop of relevant Rails info</h4>
+        <h4>- Begginner friendly</h4>
+        <h4>- Make some coding buddies and link your Github profile</h4>
+        <h4>- Let others learn from you</h4>
+        <h4>- Hmmm...it's free!</h4>
+  </div>
 </div>
-
-<div class="well">
-  <%= form_for @user do |f| %>
-    <%= f.label :username %>
-    <%= f.text_field :username %>
-
-    <%= f.label :password %>
-    <%= f.password_field :password %><br/>
-
-    <%= f.submit "Register", class: "btn btn-primary" %>
-  <% end %>
-  <%= link_to 'Already Registered?', login_path %>
- </div>

@@ -5,14 +5,19 @@
 <div class="new_post_btn"><%= link_to "Create New Post", new_post_path, class: 'btn btn-primary' %>
 </div>
 
-  <% @posts.each do |post| %>
-    <div class="posts">
-        <h3><%= link_to post.title, post_path(post)%></h3>
-          <h4><%= post.description %></h4>
+<% @posts.each do |post| %>
+  <li>
+    (
+    <%= link_to '+', vote_post_path(post, vote: true), method: 'post' %>
+    <%= post.total_votes %>
+    <%= link_to '-', vote_post_path(post, vote: false), method: 'post' %>
+    )
+      <h3><%= link_to post.title, post_path(post)%></h3>
+      <h4><%= post.description %></h4>
         <small>
           [<%= link_to 'link', display_url(post.url) %>] posted at <%= display_datetime(post.created_at) %> |
           <%= link_to 'edit', edit_post_path(post) %> |
           <i class="icon-fa-user"></i>
         </small>
-    </div>
-  <% end %>
+  </li>
+<% end %>
