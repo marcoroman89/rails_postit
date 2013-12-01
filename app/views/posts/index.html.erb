@@ -2,13 +2,12 @@
   <h2>Welcome!<small> - start posting some awesome stuff!</small></h2>
 </div>
 
-<div class="posts_creator">
 <% @posts.each do |post| %>
-  <div class="posts_feed">
+  <div id="posts_feed">
       <h3><%= link_to post.title, post_path(post)%></h3>
       <h4><%= post.description %></h4>
 
-      <div class="votes">
+      <div id="votes">
         <%= link_to '', vote_post_path(post, vote: true), method: 'post', remote: true, class: "icon-fa-arrow-up" %>
         <span id="?post<%=post.id%>_votes"><%= post.total_votes %></span>
         <%= link_to '', vote_post_path(post, vote: false), method: 'post', remote: true, class: "icon-fa-arrow-down" %>
@@ -28,4 +27,4 @@
       </small>
   </div>
 <% end %>
-</div>
+

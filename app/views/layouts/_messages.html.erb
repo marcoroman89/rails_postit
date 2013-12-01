@@ -1,4 +1,4 @@
-<div class="flash_messages">
+<div id="flash_messages">
 <% flash.each do |name, msg| %>
   <% if msg.is_a?(String) %>
     <div class="alert alert-<%= name == :notice ? "success" : "error" %>">

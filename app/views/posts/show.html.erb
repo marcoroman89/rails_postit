@@ -14,7 +14,7 @@
 </div>
 
 <h4><%= @post.description %></h4>
-  <div class="well">
+  <div id="create_comment">
     <%= form_for [@post, @comment] do |f| %>
       <%= f.text_area :body, :class=> "span4", :placeholder=> "Comment goes here", :rows => "7" %>
       </br>
@@ -28,10 +28,10 @@
   <h5>All Comments</h4>
 </div>
 <% @post.comments.each do |comment| %>
-  <div class="comments_feed">
+  <div id="comments_feed">
     <p><%= comment.body %></p>
 
-        <div class="votes">
+        <div id="votes">
           <%= link_to '', vote_post_comment_path(@post, comment, vote: true), method: 'post', remote: true, class: "icon-fa-arrow-up" %>
           <span id="?post<%=comment.id%>_votes"><%= comment.total_votes %></span>
           <%= link_to '', vote_post_comment_path(@post, comment, vote: false), method: 'post', remote: true, class: "icon-fa-arrow-down" %>

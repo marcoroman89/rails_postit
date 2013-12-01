@@ -15,7 +15,7 @@ body a:link {
   text-decoration: none;
  }
 
-.flash_messages {
+#flash_messages {
   margin-top: 5px;
  }
 
@@ -82,15 +82,23 @@ body a:link {
 
 /********** Main Content **********/
 
-.posts_feed {
+#posts_feed {
   border-bottom: solid 2px #eeeeee;
   padding-bottom: 5px;
  }
 
-.comments_feed {
+#comments_feed {
   border-bottom: solid 2px #eeeeee;
   padding-bottom: 5px;
   margin-bottom: 10px;
+ }
+
+ #create_comment {
+  margin-top: 50px;
+ }
+
+ #votes {
+  padding-bottom: 5px;
  }
 
 

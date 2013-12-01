@@ -8,15 +8,15 @@
     <div class="well">
       <%= form_for @user do |f| %>
         <%= f.label :username %>
-        <%= f.text_field :username %>
+        <%= f.text_field :username, :class=> "input", :placeholder=> "Username goes here" %>
 
         <%= f.label :password %>
-        <%= f.password_field :password %><br/>
+        <%= f.password_field :password, :class=> "input", :placeholder=> "Password goes here" %><br/>
 
         <%= f.submit "Register", class: "btn btn-primary" %>
       <% end %>
       <%= link_to 'Already Registered?', login_path %>
-     </div>
+    </div>
   </div>
 
   <div class="span6">

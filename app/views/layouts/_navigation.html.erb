@@ -30,7 +30,7 @@
               <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.username %><b class="caret"></b></a>
               <ul class="dropdown-menu">
-              <li><%= link_to 'Update Profile', "#" %></li>
+              <li><%= link_to 'Update Profile', edit_user_path(current_user) %></li>
               <li class="divider"></li>
               <li><%= link_to 'Logout', logout_path %></li>
             <% else %>
