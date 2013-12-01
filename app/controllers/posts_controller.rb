@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   before_action :require_creator, only: [:edit, :update]
 
   def index
-    @posts = Post.all
+    @posts = Post.page(params[:page]).order("created_at DESC").per_page(15)
   end
 
   def show
