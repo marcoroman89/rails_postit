@@ -1,3 +1,6 @@
+$baseFontFamily: Oxygen;
+@import url(http://fonts.googleapis.com/css?family=Oxygen);
+
 @import 'bootstrap';
 @import 'font-icons';
 
@@ -12,7 +15,7 @@ body a:link {
   text-decoration: none;
  }
 
- .flash_messages {
+.flash_messages {
   margin-top: 5px;
  }
 
@@ -79,6 +82,19 @@ body a:link {
 
 /********** Main Content **********/
 
+.posts_feed {
+  border-bottom: solid 2px #eeeeee;
+  padding-bottom: 5px;
+ }
+
+.comments_feed {
+  border-bottom: solid 2px #eeeeee;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+ }
+
+
 /********** Footer **********/
+
 
  @import 'bootstrap-responsive';
