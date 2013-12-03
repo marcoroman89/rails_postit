@@ -1,5 +1,5 @@
 <div class="page-header">
-  <h2>Welcome<small> - <%= current_user.username %></small></h2>
+  <h2>Welcome<small> - <%= current_user.username %>, start posting!</small></h2>
 </div>
 
 <% @posts.each do |post| %>
@@ -9,15 +9,15 @@
 
       <div id="votes">
         <%= link_to '', vote_post_path(post, vote: true), method: 'post', remote: true, class: "icon-fa-arrow-up" %>
-        <span id="post<%=post.id%>_votes"><%= post.total_votes %></span>
+        <span id="post_<%=post.id%>_votes"><%= post.total_votes %></span>
         <%= link_to '', vote_post_path(post, vote: false), method: 'post', remote: true, class: "icon-fa-arrow-down" %>
       </div>
 
       <small class="muted">
         <% if post.comments.count.to_s == "1" %>
-          <%= post.comments.count %> <%= link_to "Comment", post %>
+          <%= post.comments.count %> <%= link_to "comment", post %>
         <% else %>
-          <%= post.comments.count %> <%= link_to "Comments", post %>
+          <%= post.comments.count %> <%= link_to "comments", post %>
         <% end %>
         | posted by <%= link_to post.creator.username %> <%= time_ago_in_words(post.created_at) + ' ago' %>
         <% if logged_in? && (post.creator == current_user) %> |
