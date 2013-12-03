@@ -5,10 +5,10 @@
 
 <div class="well">
   <%= form_for @user do |f| %>
-    <%= f.label_tag :username %>
+    <%= f.label :username %>
     <%= f.text_field :username, :class=> "input", :placeholder=>"Username goes here" %>
 
-    <%= f.label_tag :password %>
+    <%= f.label :password %>
     <%= f.password_field :password, :class=> "input", :placeholder=>"Password goes here" %><br/>
 
     <%= f.submit "Update Changes", class: 'btn btn-primary' %>

@@ -1,5 +1,5 @@
-$baseFontFamily: Oxygen;
-@import url(http://fonts.googleapis.com/css?family=Oxygen);
+$baseFontFamily: Source Sans Pro;
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro);
 
 @import 'bootstrap';
 @import 'font-icons';
@@ -8,7 +8,8 @@ $baseFontFamily: Oxygen;
 /********** Generic Items **********/
 
 body {
-  padding-top: 60px;
+  padding-top: 50px;
+  margin-bottom: 80px;
 }
 
 body a:link {
@@ -23,7 +24,7 @@ body a:link {
 
 .hero-unit {
   text-align: center;
-  margin-top: 5px;
+  margin-top: 20px;
 }
 
 .home_btns {
@@ -83,26 +84,37 @@ body a:link {
 /********** Main Content **********/
 
 #posts_feed {
-  border-bottom: solid 2px #eeeeee;
+  border-bottom: solid 1px #eeeeee;
   padding-bottom: 5px;
  }
 
 #comments_feed {
-  border-bottom: solid 2px #eeeeee;
-  padding-bottom: 5px;
+  border-bottom: solid 1px #eeeeee;
+  padding: 5px 5px;
   margin-bottom: 10px;
  }
 
  #create_comment {
-  margin-top: 50px;
+  margin-top: 20px;
  }
 
  #votes {
-  padding-bottom: 5px;
+  padding:3px;
  }
 
+ #flash_messages {
+  margin-top: 10px;
+ }
 
 /********** Footer **********/
 
+.footer {
+  text-align: center;
+  padding: 3px;
+}
+
+.footer h6 {
+  color: #999;
+}
 
  @import 'bootstrap-responsive';

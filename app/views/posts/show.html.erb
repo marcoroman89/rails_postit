@@ -1,7 +1,6 @@
 <%= render 'shared_partials/errors', errors_object: @comment %>
-
 <div class="page-header">
-  <h3><%=@post.title %>
+  <h2><%=@post.title %>
       <small>
         - posted by <%= link_to @post.creator.username %> <%= time_ago_in_words(@post.created_at) + ' ago' %> |
         <%=link_to 'go to article', display_url(@post.url) %>
@@ -13,7 +12,9 @@
   </h2>
 </div>
 
-<h4><%= @post.description %></h4>
+<div class="well">
+  <h4><%= @post.description %></h4>
+</div>
   <div id="create_comment">
     <%= form_for [@post, @comment] do |f| %>
       <%= f.text_area :body, :class=> "span4", :placeholder=> "Comment goes here", :rows => "7" %>
@@ -24,25 +25,21 @@
     <% end %>
  </div>
 
-<div class="page-header">
-  <h5>All Comments</h4>
-</div>
 <% @post.comments.each do |comment| %>
   <div id="comments_feed">
     <p><%= comment.body %></p>
+      <div id="votes">
+        <%= link_to '', vote_post_comment_path(@post, comment, vote: true), method: 'post', remote: true, class: "icon-fa-arrow-up" %>
+        <span id="?post<%=comment.id%>_votes"><%= comment.total_votes %></span>
+        <%= link_to '', vote_post_comment_path(@post, comment, vote: false), method: 'post', remote: true, class: "icon-fa-arrow-down" %>
+      </div>
 
-        <div id="votes">
-          <%= link_to '', vote_post_comment_path(@post, comment, vote: true), method: 'post', remote: true, class: "icon-fa-arrow-up" %>
-          <span id="?post<%=comment.id%>_votes"><%= comment.total_votes %></span>
-          <%= link_to '', vote_post_comment_path(@post, comment, vote: false), method: 'post', remote: true, class: "icon-fa-arrow-down" %>
-        </div>
-
-       <small class="muted">
-        posted by <%= link_to comment.creator.username %> <%= time_ago_in_words(comment.created_at) + ' ago' %>
-        <% if logged_in? && (comment.creator == current_user) %> |
-          <%= link_to 'edit', "#" %> |
-          <i class="icon-fa-user"></i>
-        <% end %>
+     <small class="muted">
+      posted by <%= link_to comment.creator.username %> <%= time_ago_in_words(comment.created_at) + ' ago' %>
+      <% if logged_in? && (comment.creator == current_user) %> |
+        <%= link_to 'edit', "#" %> |
+        <i class="icon-fa-user"></i>
+      <% end %>
       </small>
   </div>
 <% end %>

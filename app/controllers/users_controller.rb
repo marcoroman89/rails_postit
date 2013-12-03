@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+controller typosclass UsersController < ApplicationController
   def new
     @user = User.new
   end
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   def update
     @user =User.find(params[:id])
     if @user.update(users_params)
-      flash[:notice] = "Thanks, you info has been updated!"
+      flash[:notice] = "Thanks, your info has been updated!"
       redirect_to post_path(@post)
     else
       render :edit
