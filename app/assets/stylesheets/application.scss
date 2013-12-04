@@ -1,5 +1,5 @@
-$baseFontFamily: Source Sans Pro;
-@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro);
+$baseFontFamily: Roboto;
+@import url(http://fonts.googleapis.com/css?family=Roboto);
 
 @import 'bootstrap';
 @import 'font-icons';
@@ -83,15 +83,24 @@ body a:link {
 
 /********** Main Content **********/
 
-#posts_feed {
+#post_feed {
   border-bottom: solid 1px #eeeeee;
-  padding-bottom: 5px;
+  margin: 5px;
+  padding: 7px 7px;
  }
 
-#comments_feed {
+ #post_feed:hover {
+  background: #f6f9fa;
+ }
+
+#comment_feed {
   border-bottom: solid 1px #eeeeee;
-  padding: 5px 5px;
+  padding: 7px 7px;
   margin-bottom: 10px;
+ }
+
+ #comment_feed:hover {
+  background: #F2F6F8;
  }
 
  #create_comment {

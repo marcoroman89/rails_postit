@@ -3,7 +3,7 @@
 </div>
 
 <% @posts.each do |post| %>
-  <div id="posts_feed">
+  <div id="post_feed">
       <h3><%= link_to post.title, post_path(post)%></h3>
       <h4><%= post.description %></h4>
 
