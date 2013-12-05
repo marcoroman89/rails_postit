@@ -38,7 +38,7 @@
      <small class="muted">
       posted by <%= link_to comment.creator.username %> <%= time_ago_in_words(comment.created_at) + ' ago' %>
       <% if logged_in? && (comment.creator == current_user) %> |
-        <%= link_to 'edit', "#" %> |
+        <%= link_to "edit", edit_post_comment_path(@post, comment) %> |
         <i class="icon-fa-user"></i>
       <% end %>
       </small>

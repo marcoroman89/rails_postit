@@ -1,0 +1,14 @@
+<%= render 'shared_partials/errors', errors_object: @comment %>
+<div class="page-header">
+  <h2>Update Comment<small> - looks like you need some updating!</small></h2>
+</div>
+
+<div id="create_comment">
+  <%= form_for [@post, @comment] do |f| %>
+    <%= f.text_area :body, :class=> "span12", :placeholder=> "Comment goes here", :rows => "7" %>
+    </br>
+    <div class="button">
+    <%= f.submit "Create a comment", class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>

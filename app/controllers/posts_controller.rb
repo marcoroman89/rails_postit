@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   before_action :require_creator, only: [:edit, :update]
 
   def index
-    @posts = Post.page(params[:page]).order("created_at DESC").per_page(10)
+    @posts = Post.page(params[:page]).order("created_at DESC").per_page(12)
   end
 
   def show
@@ -33,7 +33,7 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      flash[:notice] = "You Updated the Post!"
+      flash[:notice] = "You updated the post!"
       redirect_to post_path(@post)
     else
       render :edit
@@ -50,7 +50,7 @@ class PostsController < ApplicationController
       end
 
       format.js do
-        render :vote # renders /views/posts/vote.js.erb template
+        render :vote
       end
     end
   end
