@@ -28,8 +28,7 @@ class PostsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @post.update(post_params)
@@ -57,7 +56,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :description, :url)
+    params.require(:post).permit(:title, :description, :url, category_ids: [])
   end
 
   def set_post

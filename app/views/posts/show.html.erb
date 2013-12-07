@@ -1,6 +1,9 @@
 <%= render 'shared_partials/errors', errors_object: @comment %>
 
 <div class="page-header">
+  <% @post.categories.each do |category| %>
+  <span class="badge"><%= link_to category.name, category_path(category) %></span>
+<% end %>
   <h2><%=@post.title %>
       <small>
         - posted by <%= link_to @post.creator.username %> <%= time_ago_in_words(@post.created_at) + ' ago' %> |

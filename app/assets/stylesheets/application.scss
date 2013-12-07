@@ -17,7 +17,7 @@ body a:link {
  }
 
 #flash_messages {
-  margin-bottom: 15px;
+  margin-top: 20px;
  }
 
 /********** Header **********/
@@ -29,10 +29,6 @@ body a:link {
 .home_btns {
   margin: 25px 0px;
 }
-
- #flash_messages {
-  margin-top: 10px;
- }
 
 /********** Nav-Menu **********/
 
@@ -162,6 +158,10 @@ body a:link {
     color: #fff;
     text-decoration: none;
   }
+}
+
+.button {
+  margin-top: 3px;
 }
 
 /********** Footer **********/
