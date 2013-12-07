@@ -5,7 +5,7 @@ class Post < ActiveRecord::Base
   has_many :categories, through: :post_categories
   has_many :votes, as: :voteable
 
-  validates :title, :description, presence: true
+  validates :title, :description, :url, presence: true
 
   def total_votes
     self.votes.where(vote: true).size - self.votes.where(vote: false).size

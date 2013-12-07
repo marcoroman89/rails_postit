@@ -1,12 +1,15 @@
+<%= render 'shared_partials/errors', errors_object: @category %>
+
 <div class="page-header">
   <h2>New Category<small>- create a new one</small></h2>
 </div>
 
-<%= render 'shared_partials/errors', errors_object: @category %>
-
 <%= form_for @category do |f| %>
   <%= f.label :name %>
-  <%= f.text_field :name %><br/>
+  <%= f.text_field :name, :class=> "span4", :placeholder=>"Category goes here" %>
 
-  <%= f.submit "Create Category", class: 'btn btn-primary' %>
+  <div class="button">
+    <%= f.submit "Create Category", class: 'btn btn-primary' %>
+  </div>
 <% end %>
+

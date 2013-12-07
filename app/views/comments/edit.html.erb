@@ -6,7 +6,7 @@
 <div id="create_comment">
   <%= form_for [@post, @comment] do |f| %>
     <%= f.text_area :body, :class=> "span12", :placeholder=> "Comment goes here", :rows => "7" %>
-    </br>
+
     <div class="button">
     <%= f.submit "Update Comment", class: 'btn btn-primary' %>
     </div>
