@@ -84,6 +84,10 @@ body a:link {
   color: #999;
 }
 
+.navbar .nav .dropdown-toggle .caret {
+  margin: 8px 0 0 8px;
+}
+
 /********** Main Content **********/
 
 #post_feed {
@@ -93,9 +97,29 @@ body a:link {
   padding: 7px 7px;
  }
 
- #post_feed:hover {
+#post_feed:hover {
   background: #f6f9fa;
  }
+
+#category_feed {
+  border-bottom: solid 2px #eeeeee;
+  margin-bottom: 25px;
+  margin-top: -25px;
+  padding: 7px 7px;
+ }
+
+#category_feed:hover {
+  background: #f6f9fa;
+ }
+
+.page-header#category_header a {
+  color: #333333;
+ }
+
+.page-header#category_header a:hover {
+  color: #333333;
+ }
+
 
 #comment_feed {
   border-bottom: solid 2px #eeeeee;
@@ -126,6 +150,19 @@ body a:link {
   border-bottom: 2px solid #eeeeee;
 
  }
+
+ .badge {
+  padding-bottom: 5px;
+  background-color: #333333;
+  margin-top: 5px;
+ }
+
+ .badge {
+  a, a:hover, a:focus {
+    color: #fff;
+    text-decoration: none;
+  }
+}
 
 /********** Footer **********/
 

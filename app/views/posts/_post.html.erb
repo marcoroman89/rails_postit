@@ -1,0 +1,24 @@
+<% post.categories.each do |category| %>
+  <span class="badge"><%= link_to category.name, category_path(category) %></span>
+<% end %>
+<h3><%= link_to post.title, post_path(post)%></h3>
+<h4><%= post.description %></h4>
+
+<div id="votes">
+  <%= link_to '', vote_post_path(post, vote: true), method: 'post', remote: true, class: "icon-fa-arrow-up" %>
+  <span id="post_<%=post.id%>_votes"><%= post.total_votes %></span>
+  <%= link_to '', vote_post_path(post, vote: false), method: 'post', remote: true, class: "icon-fa-arrow-down" %>
+</div>
+
+<small class="muted">
+  <% if post.comments.count.to_s == "1" %>
+    <%= post.comments.count %> <%= link_to "comment", post %>
+  <% else %>
+    <%= post.comments.count %> <%= link_to "comments", post %>
+  <% end %>
+  | posted by <%= link_to post.creator.username %> <%= time_ago_in_words(post.created_at) + ' ago' %>
+  <% if logged_in? && (post.creator == current_user) %> |
+    <%= link_to "edit", edit_post_path(post) %>
+    | <i class="icon-fa-user"></i>
+  <% end %>
+</small>

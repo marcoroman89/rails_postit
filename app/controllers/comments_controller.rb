@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:edit, :update]
+
   def create
     @post = Post.find(params[:post_id])
     @comment = Comment.new(comment_params)
@@ -20,6 +21,7 @@ class CommentsController < ApplicationController
 
   def update
     @post = Post.find(params[:post_id])
+    @comment.post = @post
     if @comment.update(comment_params)
       flash[:notice] = "You updated your comment!"
       redirect_to post_path(@post)
