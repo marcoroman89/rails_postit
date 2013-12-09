@@ -7,11 +7,11 @@
 
 <div id="votes">
   <%= link_to vote_post_comment_path(comment.post, comment, vote: true), method: 'post' do %>
-    <i class="icon-fa-arrow-up"></i>
+    <i class="icon-hand-up" id="glyphs_votes"></i>
   <% end %>
   <%= comment.total_votes %> votes
   <%= link_to vote_post_comment_path(comment.post, comment, vote: false), method: 'post' do %>
-    <i class="icon-fa-arrow-down"></i>
+    <i class="icon-hand-down" id="glyphs_votes"></i>
   <% end %>
 </div>
 
@@ -19,7 +19,7 @@
   posted by <%= link_to comment.creator.username, user_path(comment.creator) %> <%= time_ago_in_words(comment.created_at) + ' ago' %>
   <% if logged_in? && (comment.creator == current_user) %> |
     <%= link_to "edit", edit_post_comment_path(@post, comment) %> |
-    <i class="icon-fa-user"></i>
+    <i class="icon-user" id="glyphs"></i>
   <% end %>
 </small>
 

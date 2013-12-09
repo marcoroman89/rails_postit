@@ -36,22 +36,22 @@
                 <% end %>
                 <li class="divider"></li>
                 <li>
-                  <%= link_to(new_category_path) do %>
-                    <i class=""></i>
-                    New Category
-                  <% end %>
-                </li>
+                  <%= link_to(new_category_path) do %><i class="icon-plus" id="glyphs"></i>New Category<% end %></li>
               </ul>
             </li>
             <li class="divider-vertical"></li>
 
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.username %><b class="caret"></b></a>
+              <%= link_to("#", class: "dropdown-toggle", "data-toggle" => "dropdown") do %>
+              <i class="icon-user icon-white" id="glyphs"></i>
+              <%= current_user.username %>
+              <span class='caret'></span>
+              <% end %>
               <ul class="dropdown-menu">
-                <li><%=link_to "User Profile", user_path(current_user) %></li>
-                <li><%= link_to 'Edit Profile', edit_user_path(current_user) %></li>
+                <li><%=link_to user_path(current_user) do %><i class="icon-user" id="glyphs"></i>user profile<% end %></li>
+                <li><%= link_to edit_user_path(current_user) do %><i class="icon-pencil" id="glyphs"></i>edit profile<% end %></li>
                 <li class="divider"></li>
-                <li><%= link_to 'Logout', logout_path %></li>
+                <li><%= link_to logout_path do %><i class="icon-circle-arrow-left" id="glyphs"></i>logout<% end %></li>
               </ul>
             <li>
           <% else %>
