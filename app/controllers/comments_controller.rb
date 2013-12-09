@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:edit, :update]
+  before_action :require_user
 
   def create
     @post = Post.find(params[:post_id])

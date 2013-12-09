@@ -6,9 +6,9 @@
 <% end %>
   <h2><%=@post.title %>
       <small>
-        - posted by <%= link_to @post.creator.username %> <%= time_ago_in_words(@post.created_at) + ' ago' %> |
+        - posted by <%= link_to @post.creator.username, user_path(@post.creator) %> <%= time_ago_in_words(@post.created_at) + ' ago' %> |
         <%=link_to 'go to article', display_url(@post.url) %>
-        <% if logged_in? && (@post.creator == current_user) %> |
+        <% if @post.creator == current_user %> |
           <%= link_to 'edit', edit_post_path(@post) %> |
           <i class="icon-fa-user"></i>
         <% end %>
@@ -31,19 +31,6 @@
 
 <% @post.comments.each do |comment| %>
   <div id="comment_feed">
-    <p><%= comment.body %></p>
-      <div id="votes">
-        <%= link_to '', vote_post_comment_path(comment.post, comment, vote: true), method: 'post', remote: true, class: "icon-fa-arrow-up" %>
-        <span id="comment_<%=comment.id%>_votes"><%= comment.total_votes %></span>
-        <%= link_to '', vote_post_comment_path(@post, comment, vote: false), method: 'post', remote: true, class: "icon-fa-arrow-down" %>
-      </div>
-
-     <small class="muted">
-      posted by <%= link_to comment.creator.username %> <%= time_ago_in_words(comment.created_at) + ' ago' %>
-      <% if logged_in? && (comment.creator == current_user) %> |
-        <%= link_to "edit", edit_post_comment_path(@post, comment) %> |
-        <i class="icon-fa-user"></i>
-      <% end %>
-      </small>
+    <%= render "comments/comment", comment: comment %>
   </div>
 <% end %>

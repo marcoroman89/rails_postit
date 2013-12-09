@@ -7,7 +7,7 @@ RailsPostit::Application.routes.draw do
   post "/login", to: "sessions#create"
   get "/logout", to: "sessions#destroy"
 
-  resources :users, only: [:create, :edit, :update]
+  resources :users, only: [:create, :edit, :update, :show]
 
   resources :posts, except: [:destroy] do
     member do

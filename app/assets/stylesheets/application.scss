@@ -24,10 +24,19 @@ body a:link {
 
 .hero-unit {
   text-align: center;
+  padding: 40px;
 }
 
 .home_btns {
-  margin: 25px 0px;
+  margin: 30px 2px 0 2px;
+}
+
+.category_banner {
+  text-align: center;
+}
+
+.design, .development, .deployment, .learn {
+  text-align: center;
 }
 
 /********** Nav-Menu **********/
@@ -124,36 +133,62 @@ body a:link {
   margin-top: -25px;
  }
 
- #comment_feed:hover {
+#comment_feed:hover {
   background: #f6f9fa;
  }
 
- #create_comment {
+#create_comment {
   margin: 20px 0 25px;
   border-bottom: 2px solid #eeeeee;
  }
 
- #votes {
+#post_feed_user_profile {
+  border-bottom: solid 2px #eeeeee;
+  margin-bottom: 10px;
+  margin-top: -10px;
+  padding: 7px 7px;
+ }
+
+#post_feed_user_profile:hover {
+  background: #f6f9fa;
+}
+
+#comment_feed_user_profile {
+  border-bottom: solid 2px #eeeeee;
+  padding: 7px 7px;
+  margin-bottom: 10px;
+  margin-top: -10px;
+}
+
+#comment_feed_user_profile:hover {
+  background: #f6f9fa;
+}
+
+#user_profile_name {
+  margin-bottom: 30px;
+}
+
+#votes {
   padding:3px;
  }
 
- .muted {
+.muted {
   margin-left: 6px;
  }
 
- .page-header {
+.page-header {
   margin: 20px 0 25px;
   border-bottom: 2px solid #eeeeee;
 
  }
 
- .badge {
+.badge {
   padding-bottom: 5px;
   background-color: #333333;
   margin-top: 5px;
  }
 
- .badge {
+.badge {
   a, a:hover, a:focus {
     color: #fff;
     text-decoration: none;
@@ -175,4 +210,4 @@ body a:link {
   color: #999;
 }
 
- @import 'bootstrap-responsive';
+@import 'bootstrap-responsive';

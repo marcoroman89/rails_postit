@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :vote]
-  before_action :require_user, only: [:new, :create, :edit, :update, :vote]
+  before_action :require_user, only: [:index, :show, :new, :create, :edit, :update, :vote]
   before_action :require_creator, only: [:edit, :update]
 
   def index

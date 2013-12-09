@@ -16,8 +16,8 @@
   <% else %>
     <%= post.comments.count %> <%= link_to "comments", post %>
   <% end %>
-  | posted by <%= link_to post.creator.username %> <%= time_ago_in_words(post.created_at) + ' ago' %>
-  <% if logged_in? && (post.creator == current_user) %> |
+  | posted by <%= link_to post.creator.username, user_path(post.creator) %> <%= time_ago_in_words(post.created_at) + ' ago' %>
+  <% if post.creator == current_user %> |
     <%= link_to "edit", edit_post_path(post) %>
     | <i class="icon-fa-user"></i>
   <% end %>
