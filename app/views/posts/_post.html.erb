@@ -5,9 +5,13 @@
 <h4><%= post.description %></h4>
 
 <div id="votes">
-  <%= link_to '', vote_post_path(post, vote: true), method: 'post', remote: true, class: "icon-fa-arrow-up" %>
-  <span id="post_<%=post.id%>_votes"><%= post.total_votes %></span>
-  <%= link_to '', vote_post_path(post, vote: false), method: 'post', remote: true, class: "icon-fa-arrow-down" %>
+  <%= link_to vote_post_path(post, vote: true), method: 'post' do %>
+    <i class="icon-fa-arrow-up"></i>
+  <% end %>
+  <%= post.total_votes %> votes
+  <%= link_to vote_post_path(post, vote: false), method: 'post' do %>
+    <i class="icon-fa-arrow-down"></i>
+  <% end %>
 </div>
 
 <small class="muted">
