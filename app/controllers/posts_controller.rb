@@ -9,7 +9,7 @@ class PostsController < ApplicationController
 
   def show
     @comment = Comment.new
-    # @comment = @post.comments.build
+    #@comment = @post.comments.build
   end
 
   def new
@@ -40,8 +40,14 @@ class PostsController < ApplicationController
   end
 
   def vote
-    Vote.create(voteable: @post, creator: current_user, vote: params[:vote])
-    flash[:notice] = "Your vote was counted!"
+    vote = Vote.create(voteable: @post, creator: current_user, vote: params[:vote])
+
+    if vote.valid?
+      flash[:notice] = "Your vote was counted!"
+    else
+      flash[:error] = "Oops, you can only vote on a post once!"
+    end
+
     redirect_to :back
   end
 

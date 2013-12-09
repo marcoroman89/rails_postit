@@ -125,7 +125,6 @@ body a:link {
   color: #333333;
  }
 
-
 #comment_feed {
   border-bottom: solid 2px #eeeeee;
   padding: 7px 7px;
@@ -183,9 +182,12 @@ body a:link {
  }
 
 .badge {
+  margin: 5px 5px 0 0;
   padding-bottom: 5px;
   background-color: #333333;
-  margin-top: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
  }
 
 .badge {
