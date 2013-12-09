@@ -9,6 +9,7 @@ class PostsController < ApplicationController
 
   def show
     @comment = Comment.new
+    # @comment = @post.comments.build
   end
 
   def new
@@ -18,7 +19,6 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.creator = current_user
-
 
     if @post.save
       flash[:notice] = "You created a new post!"

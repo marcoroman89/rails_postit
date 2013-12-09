@@ -5,11 +5,12 @@
 </div>
 
 <%= form_for @category do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name, :class=> "span4", :placeholder=>"Category goes here" %>
+  <div class="well">
+    <%= f.label :name %>
+    <%= f.text_field :name, :class=> "span4", :placeholder=>"Category goes here" %>
 
-  <div class="button">
-    <%= f.submit "Create Category", class: 'btn btn-primary' %>
+    <div class="button">
+      <%= f.submit "Create Category", class: 'btn btn-primary' %>
+    </div>
   </div>
 <% end %>
-
