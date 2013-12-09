@@ -3,14 +3,16 @@
   <h2>Edit Your Profile<small> - <%= @user.username %></h2></small>
 </div>
 
-<div class="well">
-  <%= form_for @user do |f| %>
+<%= form_for @user do |f| %>
+  <div class="well">
     <%= f.label :username %>
     <%= f.text_field :username, :disabled => true %>
 
     <%= f.label :password %>
     <%= f.password_field :password, :class=> "input", :placeholder=>"Password goes here" %>
 
-    <%= f.submit "Update Changes", class: 'btn btn-primary' %>
-  <% end %>
-</div>
+    <div class="button">
+      <%= f.submit "Update Changes", class: 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %>
