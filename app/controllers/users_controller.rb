@@ -11,7 +11,8 @@ class UsersController < ApplicationController
     @user = User.new(users_params)
 
     if @user.save
-      flash[:notice] = "You have registered, now log in."
+      session[:user_id] = @user.id
+      flash[:notice] = "You have registered, start posting!"
       redirect_to root_path
     else
       render :new
@@ -23,7 +24,6 @@ class UsersController < ApplicationController
   def edit; end
 
   def update
-    @user =User.find(params[:id])
     if @user.update(users_params)
       flash[:notice] = "Thanks, your info has been updated!"
       redirect_to post_path(@post)
@@ -35,11 +35,11 @@ class UsersController < ApplicationController
   private
 
   def users_params
-    params.require(:user).permit(:username, :password)
+    params.require(:user).permit(:username, :password, :time_zone)
   end
 
   def set_user
-    @user = User.find(params[:id])
+    @user = User.find_by(slug: params[:id])
   end
 
   def require_same_user

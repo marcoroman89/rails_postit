@@ -11,6 +11,9 @@
     <%= f.label :password %>
     <%= f.password_field :password, :class=> "input", :placeholder=>"Password goes here" %>
 
+    <%= f.label :time_zone %>
+    <%= f.time_zone_select :time_zone, ActiveSupport::TimeZone.us_zones %><br/>
+
     <div class="button">
       <%= f.submit "Update Changes", class: 'btn btn-primary' %>
     </div>

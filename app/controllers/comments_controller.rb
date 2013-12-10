@@ -17,11 +17,11 @@ class CommentsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:post_id])
+    @post = Post.find_by(slug: params[:post_id])
   end
 
   def update
-    @post = Post.find(params[:post_id])
+    @post = Post.find_by(slug: params[:post_id])
     @comment.post = @post
     if @comment.update(comment_params)
       flash[:notice] = "You updated your comment!"

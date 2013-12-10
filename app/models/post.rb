@@ -5,9 +5,12 @@ class Post < ActiveRecord::Base
   has_many :categories, through: :post_categories
   has_many :votes, as: :voteable
 
-  before_save :generate_slug
+  after_validation :generate_slug
 
-  validates :title, :description, :url, :category_ids, presence: true
+  validates :category_ids, presence: true
+  validates :title, presence: true, length: {minimum: 5}
+  validates :description, presence: true
+  validates :url, presence: true
 
   def total_votes
     self.up_votes - self.down_votes
