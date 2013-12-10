@@ -34,9 +34,10 @@
                 <% Category.all.each do |category| %>
                   <li><%= link_to category.name, category_path(category)%></li>
                 <% end %>
-                <li class="divider"></li>
-                <li>
-                  <%= link_to(new_category_path) do %><i class="icon-plus" id="glyphs"></i>New Category<% end %></li>
+                  <% if current_user.admin? %>
+                    <li class="divider"></li>
+                    <li><%= link_to(new_category_path) do %><i class="icon-plus" id="glyphs"></i>New Category<% end %></li>
+                  <% end %>
               </ul>
             </li>
             <li class="divider-vertical"></li>

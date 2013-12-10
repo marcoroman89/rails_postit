@@ -14,4 +14,12 @@ class User < ActiveRecord::Base
 
   validates_format_of :username, with: /\A[A-Za-z\d_]+\z/, message: "can only include letters and numbers"
   validates_format_of :password, with: /\A[A-Za-z\d_]+\z/, message: "can only include letters and numbers"
+
+  def admin?
+    self.role.to_s.to_sym == :admin
+  end
+
+  def moderator?
+    self.role == 'moderator?'
+  end
 end
