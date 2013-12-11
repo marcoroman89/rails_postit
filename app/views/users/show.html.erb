@@ -1,10 +1,10 @@
 <div class="page-header">
-  <h2>View Profile<small> - <%= @user.username %></h2></small>
+  <h2><%= @user.username %>'s Profile <small> - last seen online <%= time_ago_in_words(@user.updated_at) %> ago</small></h2>
 </div>
 
 <div id="user_profile_name">
   <muted><h5>Time Zone: <%= @user.time_zone %> | Two-Factor Auntentication: | </h5></muted>
-  <h4><%= @user.username %>'s Activity Feed</h4>
+  <h3>Activity Feed:</h3>
 </div>
 
 <ul class="nav nav-tabs">

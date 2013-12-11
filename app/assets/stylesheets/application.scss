@@ -1,7 +1,8 @@
 $baseFontFamily: Roboto;
 @import url(http://fonts.googleapis.com/css?family=Roboto);
 
-@import 'bootstrap';
+@import "bootstrap";
+$btnPrimaryBackground: #3498db;
 
 
 /********** Generic Items **********/
@@ -24,7 +25,7 @@ body a:link {
  }
 
  #glyphs_votes {
-  margin: 2px 2px 2px 3px;
+  margin: 2px 5px 2px 5px;
  }
 
 /********** Header **********/
@@ -175,11 +176,7 @@ body a:link {
 }
 
 #votes {
-  padding: 2px;
- }
-
-.muted {
-  margin-left: 6px;
+  margin-left: -5px;
  }
 
 .page-header {
@@ -219,4 +216,4 @@ body a:link {
   color: #999;
 }
 
-@import 'bootstrap-responsive';
+@import "bootstrap-responsive";

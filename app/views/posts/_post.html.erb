@@ -6,11 +6,11 @@
 
 <div id="votes">
   <%= link_to vote_post_path(post, vote: true), method: 'post' do %>
-    <i class="icon-hand-up" id="glyphs_votes"></i>
+    <i class="icon-thumbs-up" id="glyphs_votes"></i>
   <% end %>
   <%= post.total_votes %> votes
   <%= link_to vote_post_path(post, vote: false), method: 'post' do %>
-    <i class="icon-hand-down" id="glyphs_votes"></i>
+    <i class="icon-thumbs-down" id="glyphs_votes"></i>
   <% end %>
 </div>
 
@@ -20,7 +20,7 @@
   <% else %>
     <%= post.comments.count %> <%= link_to "comments", post %>
   <% end %>
-  | posted by <%= link_to post.creator.username, user_path(post.creator) %> <%= time_ago_in_words(post.created_at) + ' ago' %>
+  | posted by <%= link_to post.creator.username, user_path(post.creator) %>  <%= time_ago_in_words(post.created_at) + ' ago' %>
   <% if post.creator == current_user %> |
     <%= link_to "edit", edit_post_path(post) %>
     | <i class="icon-user" id="glyphs"></i>
