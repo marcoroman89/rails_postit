@@ -208,12 +208,13 @@ body a:link {
   border-radius: 5px;
  }
 
-.badge {
-  a, a:hover, a:focus {
-    color: #fff;
-    text-decoration: none;
-  }
-}
+ .badge a {
+  color: #fff;
+ }
+
+ .badge:hover {
+  background-color: #0088cc;
+ }
 
 .button {
   margin-top: 3px;
