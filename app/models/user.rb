@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
     on: :create,
     length: { minimum: 5 }
 
-  validates_format_of :username, with: /\A[A-Za-z\d_]+\z/, message: "can only include letters and numbers"
+  validates_format_of :username, with: /\A[A-Za-z0-9]+\Z/, message: "can only include letters and numbers"
 
   after_validation :generate_slug
 

@@ -8,7 +8,13 @@ class Post < ActiveRecord::Base
   after_validation :generate_slug
 
   validates :category_ids, presence: true
-  validates :title, presence: true, length: {minimum: 5}
+
+  validates :title,
+    presence: true,
+    length: {minimum: 5}
+
+  validates_format_of :title, with: /\A[A-Za-z0-9]+\Z/, message: "can only include letters and numbers"
+
   validates :description, presence: true
   validates :url, presence: true
 
