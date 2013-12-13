@@ -1,34 +1,46 @@
 <%= render 'shared_partials/errors', errors_object: @comment %>
+  <div class="span0">
+    <div class="gravatar_post_comments"><%= link_to image_tag(@post.creator.gravatar_url), user_path(@post.creator) %></div>
+  </div>
 
-<div class="page-header">
-  <% @post.categories.each do |category| %>
-  <span class="badge"><%= link_to category.name, category_path(category) %></span>
-<% end %>
-  <h2><%=@post.title %>
-      <small>
-        - posted by <%= link_to @post.creator.username, user_path(@post.creator) %> <%= time_ago_in_words(@post.created_at) + ' ago' %> |
-        <%=link_to 'go to article', display_url(@post.url) %>
-        <% if @post.creator == current_user %> |
-          <%= link_to 'edit', edit_post_path(@post) %> |
-          <i class="icon-fa-user"></i>
+    <div class="page-header">
+      <% @post.categories.each do |category| %>
+      <span class="badge"><%= link_to category.name, category_path(category) %></span>
+    <% end %>
+      <h3><%=@post.title %>
+          <small>
+            - posted by <%= link_to @post.creator.username, user_path(@post.creator) %> <%= time_ago_in_words(@post.created_at) + ' ago' %> |
+            <%=link_to 'go to article', display_url(@post.url) %>
+            <% if @post.creator == current_user %> |
+              <%= link_to 'edit', edit_post_path(@post) %> |
+              <i class="icon-fa-user"></i>
+            <% end %>
+          </small>
+      </h3>
+    </div>
+
+    <h4><%= @post.description %></h4>
+      <div id="create_comment">
+        <%= form_for [@post, @comment] do |f| %>
+          <%= f.text_area :body, :class=> "span12", :placeholder=> "Comment goes here", :rows => "7" %>
+
+          <div class="button">
+            <%= f.submit "Create a comment", class: 'btn btn-primary' %>
+          </div>
         <% end %>
-      </small>
-  </h2>
-</div>
+     </div>
 
-<h4><%= @post.description %></h4>
-  <div id="create_comment">
-    <%= form_for [@post, @comment] do |f| %>
-      <%= f.text_area :body, :class=> "span12", :placeholder=> "Comment goes here", :rows => "7" %>
-
-      <div class="button">
-        <%= f.submit "Create a comment", class: 'btn btn-primary' %>
+    <% @post.comments.each do |comment| %>
+      <div id="comment_feed">
+        <div class="row">
+          <div class="span0">
+            <div class="gravatar_comment"><%= link_to image_tag(comment.creator.gravatar_url), user_path(comment.creator) %></div>
+            </div>
+          <div class="span8">
+            <%= render "comments/comment", comment: comment %>
+          </div>
+        </div>
       </div>
     <% end %>
- </div>
 
-<% @post.comments.each do |comment| %>
-  <div id="comment_feed">
-    <%= render "comments/comment", comment: comment %>
-  </div>
-<% end %>
+

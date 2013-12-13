@@ -11,6 +11,12 @@
     <%= f.label :password %>
     <%= f.password_field :password, :class=> "input", :placeholder=>"Password goes here" %>
 
+    <%= f.label :email %>
+    <%= f.text_field :email, :class=> "input", :placeholder=> "Email goes here" %>
+
+    <%= f.label :github_profile %>
+    <%= f.text_field :github_profile, :class=> "input", :placeholder=> "Github profile goes here" %>
+
     <%= f.label :time_zone %>
     <%= f.time_zone_select :time_zone, ActiveSupport::TimeZone.us_zones %><br/>
 

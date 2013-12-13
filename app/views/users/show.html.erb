@@ -1,12 +1,18 @@
+<div class="span0">
+  <div class="gravatar_user_profile"><%= image_tag(@user.gravatar_url) %></div>
+</div>
+
 <div class="page-header">
-  <h2><%= @user.username %>'s Profile <small> - last seen online <%= time_ago_in_words(@user.updated_at) %> ago</small></h2>
+  <h2><%= @user.username %>'s Profile <small> - last seen online <%= time_ago_in_words(@user.updated_at) %> ago, check out my code at <%= link_to "Github", display_url(@user.github_profile) %> <i class="fa fa-github-alt"></i></small></h2>
 </div>
 
-<div id="user_profile_name">
-  <muted><h5>Time Zone: <%= @user.time_zone %> | Two-Factor Auntentication: | </h5></muted>
-  <h3>Activity Feed:</h3>
+<div class="pull-right">
+  <div id="user_profile_name">
+    <muted><h5>Time Zone: <%= @user.time_zone %> | Two-Factor Auntentication: | </h5></muted>
+  </div>
 </div>
 
+<h3>Activity Feed:</h3>
 <ul class="nav nav-tabs">
   <li class="<%= "active" if params[:tab].nil? %>">
     <%= link_to "Posts (#{@user.posts.size})", user_path(@user) %>
@@ -29,5 +35,3 @@
     </div>
   <% end %>
 <% end %>
-
-

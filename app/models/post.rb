@@ -13,8 +13,6 @@ class Post < ActiveRecord::Base
     presence: true,
     length: {minimum: 5}
 
-  validates_format_of :title, with: /\A[A-Za-z0-9]+\Z/, message: "can only include letters and numbers"
-
   validates :description, presence: true
   validates :url, presence: true
 
