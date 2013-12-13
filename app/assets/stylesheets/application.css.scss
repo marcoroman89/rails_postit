@@ -61,21 +61,21 @@ body a:link {
   -moz-border-radius: 500px;
 }
 
-.gravatar_comment img {
-  width: 45px;
-  height: 45px;
-  margin-top: 12px;
-}
-
 .gravatar_user_profile img {
-  margin-top: -25px;
+  margin-top: 10px;
   margin-right: 20px;
-  margin-left: -20px;
+  margin-left: 10px;
   width: 70px;
   height: 70px;
   border-radius: 500px;
   -webkit-border-radius: 500px;
   -moz-border-radius: 500px;
+}
+
+.gravatar_comment img {
+  width: 45px;
+  height: 45px;
+  margin-top: 12px;
 }
 
 .about_content {

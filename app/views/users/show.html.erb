@@ -1,37 +1,41 @@
-<div class="span0">
-  <div class="gravatar_user_profile"><%= image_tag(@user.gravatar_url) %></div>
-</div>
+<div class="row">
+  <div class="span1">
+    <div class="gravatar_user_profile"><%= image_tag(@user.gravatar_url) %></div>
+  </div>
 
-<div class="page-header">
-  <h2><%= @user.username %>'s Profile <small> - last seen online <%= time_ago_in_words(@user.updated_at) %> ago, check out my code at <%= link_to "Github", display_url(@user.github_profile) %> <i class="fa fa-github-alt"></i></small></h2>
-</div>
+  <div class="span11">
+    <div class="page-header">
+      <h3><%= @user.username %>'s Profile <small> - last seen online <%= time_ago_in_words(@user.updated_at) %> ago, check out my code at <%= link_to "Github", display_url(@user.github_profile) %> <i class="fa fa-github-alt"></i></small></h3>
+    </div>
 
-<div class="pull-right">
-  <div id="user_profile_name">
-    <muted><h5>Time Zone: <%= @user.time_zone %> | Two-Factor Auntentication: | </h5></muted>
+    <div class="pull-right">
+      <div id="user_profile_name">
+        <muted><h5>Time Zone: <%= @user.time_zone %> | Two-Factor Auntentication: | </h5></muted>
+      </div>
+    </div>
+
+    <h4>Activity Feed:</h4><br/>
+    <ul class="nav nav-tabs">
+      <li class="<%= "active" if params[:tab].nil? %>">
+        <%= link_to "Posts (#{@user.posts.size})", user_path(@user) %>
+      </li>
+      <li class="<%= "active" if params[:tab] == "comments" %>">
+        <%= link_to "Comments (#{@user.comments.size})", user_path(@user, tab: "comments") %>
+      </li>
+    </ul>
+
+    <% if params[:tab].nil? %>
+      <% @user.posts.each do |post| %>
+        <div id="post_feed_user_profile">
+          <%= render "posts/post", post: post %>
+        </div>
+      <% end %>
+    <% elsif params[:tab] == "comments" %>
+      <% @user.comments.each do |comment| %>
+        <div id="comment_feed_user_profile">
+          <%= render "comments/comment", comment: comment, show_post: true %>
+        </div>
+      <% end %>
+    <% end %>
   </div>
 </div>
-
-<h3>Activity Feed:</h3>
-<ul class="nav nav-tabs">
-  <li class="<%= "active" if params[:tab].nil? %>">
-    <%= link_to "Posts (#{@user.posts.size})", user_path(@user) %>
-  </li>
-  <li class="<%= "active" if params[:tab] == "comments" %>">
-    <%= link_to "Comments (#{@user.comments.size})", user_path(@user, tab: "comments") %>
-  </li>
-</ul>
-
-<% if params[:tab].nil? %>
-  <% @user.posts.each do |post| %>
-    <div id="post_feed_user_profile">
-      <%= render "posts/post", post: post %>
-    </div>
-  <% end %>
-<% elsif params[:tab] == "comments" %>
-  <% @user.comments.each do |comment| %>
-    <div id="comment_feed_user_profile">
-      <%= render "comments/comment", comment: comment, show_post: true %>
-    </div>
-  <% end %>
-<% end %>
