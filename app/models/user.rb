@@ -5,10 +5,13 @@ class User < ActiveRecord::Base
 
   has_secure_password validations: false
 
+  after_validation :generate_slug
+
   validates :username,
     presence: true,
     length: { within: 5..20 },
     uniqueness: true
+    validates_format_of :username, with: /\A[A-Za-z0-9]+\Z/, message: "can only include letters and numbers"
 
   validates :password,
     presence: true,
@@ -23,11 +26,7 @@ class User < ActiveRecord::Base
   validates :email,
     presence: true,
     uniqueness: true
-
-  validates_format_of :username, with: /\A[A-Za-z0-9]+\Z/, message: "can only include letters and numbers"
-  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, message: "doesn't look like a valid address"
-
-  after_validation :generate_slug
+    validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, message: "doesn't look like a valid address"
 
   def admin?
     self.role == "admin"

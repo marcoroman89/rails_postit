@@ -15,11 +15,7 @@
 </div>
 
 <small class="muted">
-  <% if post.comments.count.to_s == "1" %>
-    <%= post.comments.count %> <%= link_to "comment", post %>
-  <% else %>
-    <%= post.comments.count %> <%= link_to "comments", post %>
-  <% end %>
+  <%= link_to pluralize(post.comments.count, 'comment'), post_path(post) %>
   | posted by <%= link_to post.creator.username, user_path(post.creator) %>  <%= time_ago_in_words(post.created_at) + ' ago' %>
   <% if post.creator == current_user %> |
     <%= link_to "edit", edit_post_path(post) %>

@@ -11,10 +11,13 @@ class Post < ActiveRecord::Base
 
   validates :title,
     presence: true,
-    length: {minimum: 5}
+    length: {minimum: 5},
+    uniqueness: true
 
   validates :description, presence: true
-  validates :url, presence: true
+
+  validates :url, presence: true,
+    uniqueness: true
 
   def total_votes
     self.up_votes - self.down_votes

@@ -5,7 +5,7 @@
 
   <div class="span11">
     <div class="page-header">
-      <h3><%= @user.username %>'s Profile <small> - last seen online <%= time_ago_in_words(@user.updated_at) %> ago, check out my code at <%= link_to "Github", display_url(@user.github_profile) %> <i class="fa fa-github-alt"></i></small></h3>
+      <h3><%= @user.username %>'s Profile <small> - last seen online <%= time_ago_in_words(@user.updated_at) %> ago, check out my code on <%= link_to "Github", display_url(@user.github_profile) %> <i class="fa fa-github-alt"></i></small></h3>
     </div>
 
     <div class="pull-right">

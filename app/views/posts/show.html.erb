@@ -1,8 +1,10 @@
 <%= render 'shared_partials/errors', errors_object: @comment %>
-  <div class="span0">
+<div class="row">
+  <div class="span1">
     <div class="gravatar_post_comments"><%= link_to image_tag(@post.creator.gravatar_url), user_path(@post.creator) %></div>
   </div>
 
+  <div class="span11">
     <div class="page-header">
       <% @post.categories.each do |category| %>
       <span class="badge"><%= link_to category.name, category_path(category) %></span>
@@ -22,7 +24,7 @@
     <h4><%= @post.description %></h4>
       <div id="create_comment">
         <%= form_for [@post, @comment] do |f| %>
-          <%= f.text_area :body, :class=> "span12", :placeholder=> "Comment goes here", :rows => "7" %>
+          <%= f.text_area :body, :class=> "span11", :placeholder=> "Comment goes here", :rows => "7" %>
 
           <div class="button">
             <%= f.submit "Create a comment", class: 'btn btn-primary' %>
@@ -42,5 +44,6 @@
         </div>
       </div>
     <% end %>
-
+  </div>
+</div>
 
