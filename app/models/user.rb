@@ -1,11 +1,11 @@
 class User < ActiveRecord::Base
+  include Sluggable
+
   has_many :posts
   has_many :comments
   has_many :votes
 
   has_secure_password validations: false
-
-  after_validation :generate_slug
 
   validates :username,
     presence: true,
@@ -28,16 +28,10 @@ class User < ActiveRecord::Base
     uniqueness: true
     validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, message: "doesn't look like a valid address"
 
+  sluggable_column :username
+
   def admin?
     self.role == "admin"
-  end
-
-  def generate_slug
-    self.slug = self.username.gsub(' ', '-').downcase
-  end
-
-  def to_param
-    self.slug
   end
 
   def gravatar_url

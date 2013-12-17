@@ -9,7 +9,7 @@ RailsPostit::Application.routes.draw do
 
   resources :users, only: [:create, :edit, :update, :show]
 
-  resources :posts, except: [:destroy] do
+  resources :posts do
     member do
       post 'vote'
     end

@@ -7,16 +7,16 @@
 
 <small class="muted">
 <div id="votes">
-  <%= link_to vote_post_comment_path(comment.post, comment, vote: true), method: 'post' do %>
+  <%= link_to vote_post_comment_path(comment.post, comment, vote: true), method: "post", remote: true do %>
     <i class="icon-thumbs-up" id="glyphs_votes"></i>
   <% end %>
-  <%= comment.total_votes %> votes
-  <%= link_to vote_post_comment_path(comment.post, comment, vote: false), method: 'post' do %>
+  <span id="<%="comment_#{comment.id}_votes"%>"><%= comment.total_votes %></span> votes
+  <%= link_to vote_post_comment_path(comment.post, comment, vote: false), method: "post", remote: true do %>
     <i class="icon-thumbs-down" id="glyphs_votes"></i>
   <% end %>
 </div>
 
-  posted by <%= link_to comment.creator.username, user_path(comment.creator) %> <%= time_ago_in_words(comment.created_at) + ' ago' %>
+  posted by <%= link_to comment.creator.username, user_path(comment.creator) %> <%= time_ago_in_words(comment.created_at) + " ago" %>
   <% if logged_in? && (comment.creator == current_user) %> |
     <%= link_to "edit", edit_post_comment_path(comment.post, comment) %> |
     <i class="icon-user" id="glyphs"></i>

@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :vote]
+  before_action :set_post, only: [:show, :edit, :update, :vote, :destroy]
   before_action :require_user, only: [:index, :show, :new, :create, :edit, :update, :vote]
   before_action :require_creator_or_admin?, only: [:edit, :update]
 
@@ -38,16 +38,27 @@ class PostsController < ApplicationController
     end
   end
 
-  def vote
-    vote = Vote.create(voteable: @post, creator: current_user, vote: params[:vote])
-
-    if vote.valid?
-      flash[:notice] = "Your vote was counted!"
-    else
-      flash[:error] = "Oops, you can only vote on a post once!"
+  def destroy
+    if @post.destroy
+      flash[:notice] = "You successfully deleted your post!"
+      redirect_to posts_path
     end
+  end
 
-    redirect_to :back
+  def vote
+    @vote = Vote.create(voteable: @post, creator: current_user, vote: params[:vote])
+
+    respond_to do |format|
+      format.html do
+        if @vote.valid?
+          flash[:notice] = "Your vote was counted!"
+        else
+          flash[:error] = "Oops, you can only vote on a post once!"
+        end
+        redirect_to :back
+      end
+      format.js
+    end
   end
 
   private
