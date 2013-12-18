@@ -67,6 +67,15 @@ body a:link {
   margin-top: 12px;
 }
 
+.gravatar_current_user img {
+  padding-right: 5px; 
+  width: 28px;
+  height: 28px;
+  border-radius: 500px;
+  -webkit-border-radius: 500px;
+  -moz-border-radius: 500px;
+}
+
 .about_content {
   text-align: center;
 }
@@ -99,6 +108,7 @@ body a:link {
 .navbar .brand {
   color: #fff;
   text-shadow: none;
+  margin-top: 5px;
 }
 
 .navbar-inner {
@@ -115,6 +125,7 @@ body a:link {
 .navbar .nav > li > a {
   color: #fff;
   text-shadow: none;
+  margin-top: 5px;
 }
 
 .navbar .nav > li > a:hover {
@@ -135,6 +146,7 @@ body a:link {
 .navbar .divider-vertical {
   border-left: 1px solid #1c2022;
   border-right: 1px solid #3e4a4e;
+  height: 52px;
 }
 
 .navbar .nav li.dropdown.open > .dropdown-toggle,
