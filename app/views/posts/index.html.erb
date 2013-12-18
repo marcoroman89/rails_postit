@@ -7,7 +7,7 @@
     <div class="row">
       <div class="span0">
         <div class="gravatar_post"><%= link_to image_tag(post.creator.gravatar_url), user_path(post.creator) %></div>
-        </div>
+      </div>
       <div class="span10">
         <%= render 'post', post: post %>
       </div>

@@ -18,5 +18,9 @@ class Post < ActiveRecord::Base
   validates :url, presence: true,
     uniqueness: true
 
-  sluggable_column :title  
+  sluggable_column :title
+
+  def newest_comments
+    self.comments.order("created_at DESC")
+  end  
 end
